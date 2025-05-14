@@ -17,7 +17,7 @@ class BinStatusViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def latest_bin_status(request):
     latest_status = BinStatus.objects.last()
     if latest_status:
