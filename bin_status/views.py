@@ -21,6 +21,11 @@ class BinStatusViewSet(viewsets.ModelViewSet):
 def latest_bin_status(request):
     latest_status = BinStatus.objects.last()
     if latest_status:
-        serializer = BinStatusSerializer(latest_status)
-        return Response(serializer.data)
+        # Modify the bio_status and recyclable_status values
+        data = {
+            'bio_status': 'empty' if latest_status.bio_status == 'not full' else 'full',
+            'recyclable_status': 'empty' if latest_status.recyclable_status == 'not full' else 'full',
+        }
+        return Response(data)
     return Response({"detail": "No bin status available."}, status=404)
+
