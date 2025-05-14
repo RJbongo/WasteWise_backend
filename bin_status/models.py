@@ -1,12 +1,13 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-
-
-User = get_user_model()
 
 class BinStatus(models.Model):
-    bio_status = models.CharField(max_length=20, default="empty") 
-    recyclable_status = models.CharField(max_length=20, default="empty")
+    STATUS_CHOICES = [
+        ('not full', 'Not Full'),
+        ('full', 'Full'),
+    ]
+
+    bio_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='not full')
+    recyclable_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='not full')
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
