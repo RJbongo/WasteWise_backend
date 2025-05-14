@@ -1,11 +1,6 @@
 from django.contrib import admin
-from .models import BinStatus, Device
-
-@admin.register(Device)
-class DeviceAdmin(admin.ModelAdmin):
-    list_display = ['name', 'api_key']     
-    readonly_fields = ['api_key']
+from .models import BinStatus
 
 @admin.register(BinStatus)
 class BinStatusAdmin(admin.ModelAdmin):
-    list_display = ['device', 'bin_type', 'is_full', 'updated_at']
+    list_display = ['bio_status', 'recyclable_status', 'updated_at']

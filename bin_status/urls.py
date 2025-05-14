@@ -8,4 +8,3 @@ router.register(r'bin-status', BinStatusViewSet, basename='bin-status')
 urlpatterns = [
     path('', include(router.urls)),
 ]
-    
