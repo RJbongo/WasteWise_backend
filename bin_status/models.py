@@ -1,4 +1,8 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 class BinStatus(models.Model):
     bio_status = models.CharField(max_length=20, default="empty") 
