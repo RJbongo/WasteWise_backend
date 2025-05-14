@@ -12,7 +12,7 @@ class BinStatusViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         # Allow unauthenticated access to the list and retrieve actions
-        if self.action in ['list', 'retrieve']:
+        if self.action in ['list', 'retrieve', 'create']:
             return [AllowAny()]
         return [IsAuthenticated()]  # Only authenticated users can create, update, delete
 
